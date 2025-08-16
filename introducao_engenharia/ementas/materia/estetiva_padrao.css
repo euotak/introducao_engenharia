@@ -1,0 +1,125 @@
+/* ===== Variáveis de cores e estilos ===== */
+:root {
+    --primary: #0a5b68;
+    --primary-hover: #084f5a;
+    --bg-light: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-dark: #122028;
+    --muted: #6b7176;
+    --radius: 8px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Reset básico ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+/* ===== Topo ===== */
+.top-bar {
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 6vw;
+}
+
+.top-bar .logo {
+    font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-return {
+    background-color: #0d83a0;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.btn-return:hover {
+    background-color: #0b748f;
+}
+
+/* ===== Estrutura principal ===== */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ===== Cards ===== */
+.card {
+    background-color: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.card ul {
+    padding-left: 18px;
+}
+
+.card li {
+    margin-bottom: 6px;
+}
+
+/* ===== Seção de overview ===== */
+.course-overview {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
+
+.course-overview .course-text {
+    flex: 2;
+}
+
+.course-overview .course-image {
+    flex: 1;
+    text-align: center;
+}
+
+.course-overview img {
+    max-width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ===== Rodapé ===== */
+footer {
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 6vw;
+    gap: 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
