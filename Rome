@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ementas – Eng. Controle e Automação | IFG Goiânia</title>
+  <meta name="description" content="Site com as ementas (conteúdos) das disciplinas do 8º, 9º e 10º semestres do curso de Engenharia de Controle e Automação – IFG Campus Goiânia."/>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --surface:#121833;
+      --text:#e8ecf6;
+      --muted:#aab3cf;
+      --brand:#30e0a1;
+      --brand-2:#8aa3ff;
+      --border:#243055;
+      --radius:18px;
+      --shadow:0 10px 25px rgba(0,0,0,.35);
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: Inter, system-ui, sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.6;
+    }
+    header{position:sticky; top:0; background:rgba(11,16,32,.9); border-bottom:1px solid var(--border)}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:16px 20px}
+    .title{font-size:1.2rem; font-weight:700}
+    nav{margin-top:10px; display:flex; gap:10px; flex-wrap:wrap}
+    .chip{padding:6px 12px; border-radius:999px; border:1px solid var(--border); background:rgba(18,24,51,.6); color:var(--text)}
+    .hero{padding:40px 20px 10px}
+    .hero h1{margin:0 0 10px}
+    section{scroll-margin-top:80px}
+    .grid{display:grid; gap:18px; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));}
+    .card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .card .head{padding:16px; border-bottom:1px solid var(--border)}
+    .disc{font-weight:700}
+    .ch{font-size:.85rem; color:var(--muted)}
+    .body{padding:14px 16px}
+    .sem-header{margin:26px 0 14px; font-size:1.3rem; font-weight:800}
+    footer{margin-top:36px; border-top:1px solid var(--border); color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="title">Engenharia de Controle e Automação – IFG Goiânia</div>
+      <nav>
+        <a class="chip" href="#s8">8º semestre</a>
+        <a class="chip" href="#s9">9º semestre</a>
+        <a class="chip" href="#s10">10º semestre</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Ementas das Disciplinas</h1>
+      <p>Conteúdos referentes ao 8º, 9º e 10º semestres do curso de Engenharia de Controle e Automação – IFG Goiânia.</p>
+    </section>
+
+    <!-- 8º SEMESTRE -->
+    <section id="s8">
+      <div class="sem-header">8º semestre</div>
+      <div class="grid">
+        <div class="card"><div class="head"><div class="disc">Planejamento de Processos Industriais</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Manufatura Integrada por Computador</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Empreendedorismo e Planejamento Profissional</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Automação e Supervisão de Processos I</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Sociologia do Trabalho, Tecnologia e Cultura</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Acionamentos Hidráulicos e Pneumáticos</div></div></div>
+      </div>
+    </section>
+
+    <!-- 9º SEMESTRE -->
+    <section id="s9">
+      <div class="sem-header">9º semestre</div>
+      <div class="grid">
+        <div class="card"><div class="head"><div class="disc">Sistemas de Controle Digital</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Introdução à Economia</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Projeto Final de Curso I</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Sistemas a Eventos Discretos</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Automação e Supervisão de Processos II</div></div></div>
+      </div>
+    </section>
+
+    <!-- 10º SEMESTRE -->
+    <section id="s10">
+      <div class="sem-header">10º semestre</div>
+      <div class="grid">
+        <div class="card"><div class="head"><div class="disc">Projeto Final de Curso II</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Engenharia Econômica</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Legislação e Ética</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Ciências do Ambiente</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Tópicos em Sistemas Elétricos I - Instalações Elétricas Prediais</div></div></div>
+        <div class="card"><div class="head"><div class="disc">Tópicos em Sistemas Elétricos I - Instalações Industriais</div></div></div>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <p>© <span id="ano"></span> Engenharia de Controle e Automação – IFG Goiânia</p>
+    </footer>
+  </main>
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
+
