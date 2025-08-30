@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas Não-Lineares</title>
+    <link rel="stylesheet" href="../estetiva_padrao.css">
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <div class="logo">📖 Fluxograma do currículo do IFG</div>
+        <a href="../../ementa.html" class="btn-return">Voltar para o Fluxograma</a>
+    </header>
+
+    <main>
+        <!-- Informações -->
+        <section class="card">
+            <h2>Informações da Disciplina</h2>
+            <div class="course-overview">
+                <div class="course-image">
+                    <img src="sistemas_nao_lineares_prof.jpg" alt="Docente responsável pela disciplina de Sistemas Não-Lineares" loading="lazy">
+                </div>
+                <div class="course-text">
+                    <p><strong>Nome da Disciplina:</strong> Sistemas Não-Lineares</p>
+                    <p><strong>Período:</strong> 7º</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Objetivo -->
+        <section class="card">
+            <h2>Objetivo</h2>
+            <p>
+                Fornecer ao estudante de Engenharia de Controle e Automação os conceitos básicos de sistemas não-lineares. 
+                Caracterizar as principais técnicas de controle não-lineares de processos físicos. 
+                Funcionar como instrumento para que o aluno possa, ao final do curso, reconhecer as não linearidades presentes 
+                na maioria das aplicações práticas e ser capaz de representá-las matematicamente. 
+                Permitir, através de simulações computacionais, que o aluno possa aplicar os conhecimentos adquiridos 
+                em um ambiente interativo. Apresentar as técnicas de análise e projeto de controladores para sistemas não-lineares.
+            </p>
+        </section>
+
+        <!-- Ementa -->
+        <section class="card">
+            <h2>Ementa</h2>
+            <p>
+                Importância do estudo de sistemas não-lineares. Características e principais fenômenos de sistemas não-lineares. 
+                Equações diferenciais não-lineares. Análise qualitativa a partir do plano de fase de sistemas não-lineares. 
+                Teoremas de existência e unicidade de solução. Métodos numéricos de análise da estabilidade absoluta e da estabilidade relativa. 
+                Critérios de estabilidade de Lyapunov: método direto e linearização. Métodos gráficos para a representação e modelagem matemática 
+                de não-linearidades típicas (saturação, zona morta, atraso, etc.). Aproximação linear. Função descritiva. 
+                Análise e projeto de sistemas de controle com elementos ou características não-lineares.
+            </p>
+        </section>
+
+        <!-- Bibliografia Básica -->
+        <section class="card">
+            <h2>Bibliografia Básica</h2>
+            <ul>
+                <li>KHALIL, H. K. <em>Nonlinear Systems</em>. Prentice Hall, 2002.</li>
+                <li>MONTEIRO, L. H. A. <em>Sistemas Dinâmicos</em>. Livraria da Física, 2006.</li>
+                <li>HEMERLY, E. M. <em>Controle por Computador de Sistemas Dinâmicos</em>. Edgar Blücher, 2000.</li>
+            </ul>
+        </section>
+
+        <!-- Bibliografia Complementar -->
+        <section class="card">
+            <h2>Bibliografia Complementar</h2>
+            <ul>
+                <li>VIDYASAGAR, M. <em>Nonlinear Systems Analysis</em>. 2ª Ed. SIAM, 2002.</li>
+                <li>SLOTINE, J. J. E.; LI, W. <em>Applied Nonlinear Control</em>. Prentice Hall, 1991.</li>
+                <li>PIMENTEL, S. P. <em>Apostila - Sistemas Não-Lineares</em>. IFG, 2011.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-left">
+            <p><strong>Recursos para estudantes</strong><br>
+            Consulte os recursos de biblioteca, laboratório e online.</p>
+        </div>
+        <div class="footer-right">
+            <p><strong>Informações de contato</strong><br>
+            Email: <a href="mailto:info@ifg.edu">info@ifg.edu</a> | Telefone: (62) 3227-2700</p>
+        </div>
+    </footer>
+
+</body>
+</html>
