@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ementa do Curso - Engenharia de Controle e Automação</title>
+    <link rel="stylesheet" href="ementa.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            🎓 <span>Programa de Engenharia IFG</span>
+        </div>
+        <nav>
+            <a href="../index.html">Início</a>
+            <a href="ementa.html" class="active">Fluxograma Curricular</a>
+            <a href="#">Detalhes do Curso</a>
+            <a href="#">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Ementa do Curso</h1>
+
+        <section class="semestre">
+            <h2>1º Semestre</h2>
+            <div class="disciplinas">
+                <a href="materia/1_semestre/introducao_engenharia.html" 
+                class="disciplina" 
+                style="text-decoration: none; color: inherit;">
+                    <h3>Introdução à Engenharia de Controle e Automação</h3>
+                    <p><strong>Carga Horária:</strong> 36h</p>
+                    <p><strong>Aulas Semanais:</strong> 2</p>
+                </a>
+
+
+                <a href="materia/1_semestre/desenho_basico.html"
+                class="disciplina"
+                style="text-decoration: none; color: inherit;">
+                    <h3>Desenho Básico</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+
+                <a href="materia/1_semestre/Lingua_Portuguesa.html"
+                class="disciplina"
+                style="text-decoration: none; color: inherit;">
+                    <h3>Língua Portuguesa</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+
+                <a href="materia/1_semestre/quimica.html"
+                class="disciplina"
+                style="text-decoration: none; color: inherit;">
+                    <h3>Química Geral</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+
+                <a href="materia/1_semestre/calculo1.html"
+                class="disciplina"
+                style="text-decoration: none; color: inherit;">
+                    <h3>Cálculo Diferencial e Integral I</h3>
+                    <p><strong>Carga Horária:</strong> 108h</p>
+                    <p><strong>Aulas Semanais:</strong> 6</p>
+                </a>
+                
+                <a href="materia/1_semestre/introducao_computacao.html"
+                class="disciplina"
+                style="text-decoration: none; color: inherit;">
+                    <h3>Introdução aos Sistemas Computacionais</h3>
+                    <p><strong>Carga Horária:</strong> 72</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+
+                <a href="materia/1_semestre/Geometria_Analitica.html"
+                class="disciplina"
+                style="text-decoration: none; color: inherit;">
+                    <h3>Geometria Analítica</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="semestre">
+            <h2>2º Semestre</h2>
+                <div class="disciplinas">
+                    <a href="materia/2_semestre/Desenho-técnico_Assistido_por_Computador.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Desenho Técnico Assistido por Computador</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                    <a href="materia/2_semestre/Estrutura_de_Dados.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Estrutura de Dados</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                    <a href="materia/2_semestre/algebra_Linear.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Álgebra Linear</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                    <a href="materia/2_semestre/calculo2.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Cálculo Diferencial e Integral II</h3>
+                        <p><strong>Carga Horária:</strong> 108h</p>
+                        <p><strong>Aulas Semanais:</strong> 6</p>
+                    </a>
+                    <a href="materia/2_semestre/fisica1.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Mecânica</h3>
+                        <p><strong>Carga Horária:</strong> 82h</p>
+                        <p><strong>Aulas Semanais:</strong> 6</p>
+                    </a>
+                    <a href="materia/2_semestre/Sistemas_Digitais.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Sistemas Digitais</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                </div>
+            </section>
+            <section class="semestre">
+            <section class="semestre">
+                <h2>3º Semestre</h2>
+                <div class="disciplinas">
+                    <a href="materia/3_semestre/Sistemas_Microprocessados.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Sistemas Microprocessados</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                    <a href="materia/3_semestre/equacao_diferencial.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Equações Diferenciais</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                    <a href="materia/3_semestre/fisica3.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Eletricidade e Magnetismo</h3>
+                        <p><strong>Carga Horária:</strong> 108h</p>
+                        <p><strong>Aulas Semanais:</strong> 6</p>
+                    </a>
+                    <a href="materia/3_semestre/Estatistica_e_Probabilidade.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Estatística e Probabilidade</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                    <a href="materia/3_semestre/Metodologia_Cientifica.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Metodologia Científica</h3>
+                        <p><strong>Carga Horária:</strong> 36h</p>
+                        <p><strong>Aulas Semanais:</strong> 2</p>
+                    </a>
+                    <a href="materia/3_semestre/calculo3.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Cálculo III</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                    <a href="materia/3_semestre/programacao_orientada_objeto.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Desenv. de Sistemas Comput. I</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                </div>
+            </section>
+
+
+            <section class="semestre">
+                <h2>4º Semestre</h2>
+                <div class="disciplinas">
+                    <a href="materia/4_semestre/circuitos_eletricos1.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Circuitos Elétricos I</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                    <a href="materia/4_semestre/Sistemas_Lineares.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Sistemas Lineares</h3>
+                        <p><strong>Carga Horária:</strong> 108h</p>
+                        <p><strong>Aulas Semanais:</strong> 6</p>
+                    </a>
+                    <a href="materia/4_semestre/calculo_numerico.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Cálculo Numérico</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                    <a href="materia/4_semestre/fisica2.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Ondas, Ótica e Termodinâmica</h3>
+                        <p><strong>Carga Horária:</strong> 108h</p>
+                        <p><strong>Aulas Semanais:</strong> 6</p>
+                    </a>
+                    <a href="materia/4_semestre/Variaveis_Complexas.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Variáveis Complexas</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                    <a href="materia/4_semestre/bancoDeDados.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                        <h3>Desenv. de Sistemas Comput. II</h3>
+                        <p><strong>Carga Horária:</strong> 72h</p>
+                        <p><strong>Aulas Semanais:</strong> 4</p>
+                    </a>
+                </div>
+            </section>
+
+
+        <section class="semestre">
+            <h2>5º Semestre</h2>
+            <div class="disciplinas">
+                    <a href="materia/5_semestre/eletromagnetismo.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                    <h3>Eletromagnetismo</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+            </a>
+                <a href="materia/5_semestre/eletronica_analogica.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                    <h3>Eletrônica Analógica</h3>
+                    <p><strong>Carga Horária:</strong> 108h</p>
+                    <p><strong>Aulas Semanais:</strong> 6</p>
+            </a>
+                <a href="materia/5_semestre/processos_em_engenharia.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                    <h3>Processos em Engenharia</h3>
+                     <p><strong>Carga Horária:</strong> 72h</p>
+                     <p><strong>Aulas Semanais:</strong> 4</p>
+             </a>
+               <a href="materia/5_semestre/circuitos_eletricos_ii.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                   <h3>Circuitos Elétricos II</h3>
+                   <p><strong>Carga Horária:</strong> 108h</p>
+                   <p><strong>Aulas Semanais:</strong> 6</p>
+            </a>
+               <a href="materia/5_semestre/mecanica_dos_solidos.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                  <h3>Mecânica dos Sólidos</h3>
+                  <p><strong>Carga Horária:</strong> 72h</p>
+                  <p><strong>Aulas Semanais:</strong> 4</p>
+            </a>
+               <a href="materia/5_semestre/sistemas_de_controle_i.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                   <h3>Sistemas de Controle I</h3>
+                   <p><strong>Carga Horária:</strong> 72h</p>
+                   <p><strong>Aulas Semanais:</strong> 4</p>
+            </a>
+            </div>
+        </section>
+
+        <section class="semestre">
+            <h2>6º Semestre</h2>
+            <div class="disciplinas">
+              <a href="materia/6_semestre/eletronica_industrial.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                  <h3>Eletrônica Industrial</h3>
+                  <p><strong>Carga Horária:</strong> 72h</p>
+                  <p><strong>Aulas Semanais:</strong> 4</p>
+            </a>
+                <a href="materia/6_semestre/sistemas_de_controle_ii.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                  <h3>Sistema de Controle II</h3>
+                  <p><strong>Carga Horária:</strong> 72h</p>
+                  <p><strong>Aulas Semanais:</strong> 4</p>
+            </a>
+               <a href="materia/6_semestre/instrumentacao_industrial_i.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                  <h3>Instrumentação Industrial I</h3>
+                  <p><strong>Carga Horária:</strong> 72h</p>
+                  <p><strong>Aulas Semanais:</strong> 4</p>
+           </a>
+                <a href="materia/6_semestre/maquinas_eletricas.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                   <h3>Máquinas Elétricas</h3>
+                   <p><strong>Carga Horária:</strong> 108h</p>
+                   <p><strong>Aulas Semanais:</strong> 6</p>
+            </a>
+                <a href="materia/6_semestre/inteligencia_artificial.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                   <h3>Inteligência Artificial</h3>
+                   <p><strong>Carga Horária:</strong> 72h</p>
+                   <p><strong>Aulas Semanais:</strong> 4</p>
+            </a>
+               <a href="materia/6_semestre/processamento_digital_de_sinais.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                    <h3>Processamento Digital de Sinais</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+            </a>
+            </div>
+        </section>
+
+        <section class="semestre">
+            <h2>7º Semestre</h2>
+            <div class="disciplinas">
+               <a href="materia/7_semestre/sistemas_nao_lineares.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                <h3>Sistemas Não Lineares</h3>
+                <p><strong>Carga Horária:</strong> 72h</p>
+                <p><strong>Aulas Semanais:</strong> 4</p>
+          </a>
+              <a href="materia/7_semestre/redes_industriais.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                 <h3>Redes Industriais</h3>
+                 <p><strong>Carga Horária:</strong> 72h</p>
+                 <p><strong>Aulas Semanais:</strong> 4</p>
+         </a>
+                <a href="materia/7_semestre/instalacoes_eletricas_e_logicas_para_automacao.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                 <h3>Inst. Elétricas e Lógicas p/ Automação</h3>
+                 <p><strong>Carga Horária:</strong> 72h</p>
+                 <p><strong>Aulas Semanais:</strong> 4</p>
+          </a>
+               <a href="materia/7_semestre/introducao_a_administracao.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                 <h3>Administração</h3>
+                 <p><strong>Carga Horária:</strong> 36h</p>
+                 <p><strong>Aulas Semanais:</strong> 2</p>
+          </a>
+               <a href="materia/7_semestre/acionamentos_eletricos.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                 <h3>Acionamentos Elétricos</h3>
+                 <p><strong>Carga Horária:</strong> 72h</p>
+                 <p><strong>Aulas Semanais:</strong> 4</p>
+         </a>
+               <a href="materia/7_semestre/instrumentacao_industrial_ii.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                   <h3>Instrumentação Industrial II</h3>
+                   <p><strong>Carga Horária:</strong> 72h</p>
+                   <p><strong>Aulas Semanais:</strong> 4</p>
+         </a>
+                <a href="materia/7_semestre/fenomenos_de_transporte.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                   <h3>Fenômenos de Transporte</h3>
+                   <p><strong>Carga Horária:</strong> 72h</p>
+                   <p><strong>Aulas Semanais:</strong> 4</p>
+        </a>
+            </div>
+        </section>
+
+        <section class="semestre">
+        <section class="semestre">
+            <h2>8º Semestre</h2>
+            <div class="disciplinas">
+                <a href="materia/8_semestre/Acionamentos Hidráulicos e Pneumáticos.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Acion. Hidráulicos e Pneumáticos</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+            
+                    <a href="materia/8_semestre/sociologia_do_trabalho_tecnologia_e_cultura.html" class="disciplina" style="text-decoration: none; color: inherit;">
+                    <h3>Sociologia do Trabalho, Tecn. e Cultura</h3>
+                    <p><strong>Carga Horária:</strong> 36h</p>
+                    <p><strong>Aulas Semanais:</strong> 2</p>
+                </a>
+            
+                <a href="materia/8_semestre/Automação_e_Supervisão_de_Processos1.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Automação e Supervisão de Processos I</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+            
+                <a href="materia/8_semestre/manufatura_integrada_por_computador.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Manufatura Integrada por Computador</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+            
+                <a href="materia/8_semestre/planejamento_de_processos_industriais.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Planejamento de Processos Industriais</h3>
+                    <p><strong>Carga Horária:</strong> 36h</p>
+                    <p><strong>Aulas Semanais:</strong> 2</p>
+                </a>
+            
+                <a href="materia/8_semestre/empreendedorismo_e_planejamento_profissional.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Empreend. e Planej. Profissional</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+            </div>
+        </section>
+
+
+        <section class="semestre">
+            <h2>9º Semestre</h2>
+            <div class="disciplinas">
+                <a href="materia/9_semestre/trabalho_de_conclusao_de_curso_i.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Projeto Final de Curso I</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+
+            
+                <a href="materia/9_semestre/sistemas_a_eventos_discretos.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Sistemas a Eventos Discretos</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p> 
+                </a>
+            
+                <a href="materia/9_semestre/automacao_e_supervisao_de_processos_ii.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Automação e Supervisão de Processos II</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+            
+                <a href="materia/9_semestre/sistemas_de_controle_digital.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Sistemas de Controle Digital</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+            
+                <a href="materia/9_semestre/introducao_a_economia.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Economia</h3>
+                    <p><strong>Carga Horária:</strong> 36h</p>
+                    <p><strong>Aulas Semanais:</strong> 2</p>
+                </a>
+            </div>
+        </section>
+
+
+        <section class="semestre">
+            <h2>10º Semestre</h2>
+            <div class="disciplinas">
+            
+                <a href="materia/10_semestre/trabalho_de_conclusao_de_curso_ii.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;"> 
+                    <h3>Projeto Final de Curso II</h3>
+                    <p><strong>Carga Horária:</strong> 72h</p>
+                    <p><strong>Aulas Semanais:</strong> 4</p>
+                </a>
+            
+                <a href="materia/10_semestre/gestao_ambiental.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Gestão Ambiental</h3>
+                    <p><strong>Carga Horária:</strong> 36h</p>
+                    <p><strong>Aulas Semanais:</strong> 2</p>
+                </a>
+            
+                <a href="materia/10_semestre/legislacao_e_etica.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Legislação e Ética</h3>
+                    <p><strong>Carga Horária:</strong> 36h</p>
+                    <p><strong>Aulas Semanais:</strong> 2</p>
+                </a>
+            
+                <a href="materia/10_semestre/engenharia_economica.html" 
+                   class="disciplina" 
+                   style="text-decoration: none; color: inherit;">
+                    <h3>Eng. Econômica</h3>
+                    <p><strong>Carga Horária:</strong> 36h</p>
+                    <p><strong>Aulas Semanais:</strong> 2</p>
+                </a>
+            
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>© 2023 Programa de Engenharia IFG</p>
+    </footer>
+</body>
+</html>
