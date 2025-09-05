@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fluxograma Curricular - 1º e 2º Semestres</title>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.4/dist/mermaid.min.js"></script>
+  <title>Fluxograma Curricular - Engenharia de Controle e Automação</title>
+  <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
   <style>
     * {
       margin: 0;
@@ -22,7 +22,7 @@
     }
     
     .container {
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
       background: white;
       border-radius: 15px;
@@ -60,14 +60,14 @@
       padding: 30px;
     }
     
-    .flow-controls {
+    .controls {
       display: flex;
       justify-content: center;
       gap: 15px;
       margin-bottom: 25px;
     }
     
-    .flow-controls button {
+    .controls button {
       padding: 12px 20px;
       background: #106d78;
       color: white;
@@ -81,81 +81,32 @@
       font-weight: 500;
     }
     
-    .flow-controls button:hover {
+    .controls button:hover {
       background: #0a4950;
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     
-    .flowchart-container {
+    #flowchart {
+      width: 100%;
+      height: 2000px;
       background: #f9fbfc;
       border-radius: 12px;
-      padding: 25px;
       margin-bottom: 30px;
-      overflow: auto;
+      overflow: hidden;
       border: 1px solid #e0e8eb;
     }
     
-    .mermaid {
-      display: flex;
-      justify-content: center;
-      min-height: 500px;
-      transform-origin: center center;
-      transition: transform 0.3s ease;
-    }
-    
-    .info-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 25px;
-      margin-bottom: 30px;
-    }
-    
-    .info-box {
-      flex: 1;
-      min-width: 300px;
-      background: #f9fbfc;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      border: 1px solid #e0e8eb;
-    }
-    
-    .info-box h3 {
-      color: #106d78;
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 2px dashed #ccc;
-    }
-    
-    .hours-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 12px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #eee;
-      align-items: center;
-    }
-    
-    .hours-grid.header {
+    .semester-title {
+      position: absolute;
+      font-size: 18px;
       font-weight: bold;
-      background-color: #e6f7ff;
-      padding: 10px;
-      border-radius: 5px;
-      margin-bottom: 15px;
-    }
-    
-    .hours-grid:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    
-    .hours {
-      font-weight: 600;
       color: #106d78;
-      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px 15px;
+      border-radius: 5px;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
     
     .legend {
@@ -187,6 +138,18 @@
     .practical { background-color: #9ECE7F; }
     .mixed { background-color: #FF9D6F; }
     
+    .tooltip {
+      position: absolute;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #106d78;
+      border-radius: 5px;
+      pointer-events: none;
+      font-size: 14px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+    
     footer {
       text-align: center;
       padding: 25px;
@@ -195,23 +158,18 @@
     }
     
     @media (max-width: 768px) {
-      .flow-controls {
+      .controls {
         flex-direction: column;
         align-items: center;
       }
       
-      .flow-controls button {
+      .controls button {
         width: 100%;
         max-width: 300px;
       }
       
-      .info-container {
-        flex-direction: column;
-      }
-      
-      .hours-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
+      #flowchart {
+        height: 1200px;
       }
     }
   </style>
@@ -223,159 +181,17 @@
         <span>🎓 Engenharia de Controle e Automação</span>
       </div>
       <h1>Fluxograma Curricular</h1>
-      <p class="subtitle">1º e 2º Semestres</p>
+      <p class="subtitle">1º ao 10º Semestres</p>
     </header>
 
     <div class="content">
-      <div class="flow-controls">
-        <button onclick="zoomIn()">🔍 Ampliar Visualização</button>
-        <button onclick="zoomOut()">🔍 Reduzir Visualização</button>
-        <button onclick="resetZoom()">🔄 Redefinir Zoom</button>
+      <div class="controls">
+        <button onclick="cy.zoom(cy.zoom() * 1.2)">🔍 Ampliar Visualização</button>
+        <button onclick="cy.zoom(cy.zoom() * 0.8)">🔍 Reduzir Visualização</button>
+        <button onclick="cy.reset()">🔄 Redefinir Zoom</button>
       </div>
       
-      <div class="flowchart-container">
-        <div class="mermaid">
-          graph TD
-          %% 1º Semestre
-          subgraph S1["1º Semestre"]
-            A[Int. à Eng. de Controle e Automação]
-            B[Desenho Básico]
-            C[Língua Portuguesa]
-            D[Int. aos Sistemas Computacionais]
-            E[Cálculo Dif. e Integral I]
-            F[Geometria Analítica]
-            G[Química Geral]
-          end
-
-          %% 2º Semestre
-          subgraph S2["2º Semestre"]
-            H[Des. Técnico Assistido por Computador]
-            I[Estrutura de Dados]
-            J[Álgebra Linear]
-            K[Cálculo Dif. e Integral II]
-            L[Mecânica]
-            M[Sistemas Digitais]
-          end
-
-          %% Ligações (pré-requisitos)
-          B --> H
-          E --> K
-          D --> I
-          F --> J
-        </div>
-      </div>
-      
-      <div class="info-container">
-        <div class="info-box">
-          <h3>Resumo do 1º Semestre</h3>
-          <div class="hours-grid header">
-            <span>Disciplina</span>
-            <span class="hours">Total</span>
-            <span class="hours">Práticas</span>
-            <span class="hours">Teóricas</span>
-          </div>
-          <div class="hours-grid">
-            <span>Int. à Eng. de Controle e Automação</span>
-            <span class="hours">36</span>
-            <span class="hours">0</span>
-            <span class="hours">2</span>
-          </div>
-          <div class="hours-grid">
-            <span>Desenho Básico</span>
-            <span class="hours">72</span>
-            <span class="hours">72</span>
-            <span class="hours">0</span>
-          </div>
-          <div class="hours-grid">
-            <span>Língua Portuguesa</span>
-            <span class="hours">72</span>
-            <span class="hours">0</span>
-            <span class="hours">72</span>
-          </div>
-          <div class="hours-grid">
-            <span>Int. aos Sistemas Computacionais</span>
-            <span class="hours">72</span>
-            <span class="hours">18</span>
-            <span class="hours">54</span>
-          </div>
-          <div class="hours-grid">
-            <span>Cálculo Dif. e Integral I</span>
-            <span class="hours">108</span>
-            <span class="hours">0</span>
-            <span class="hours">108</span>
-          </div>
-          <div class="hours-grid">
-            <span>Geometria Analítica</span>
-            <span class="hours">72</span>
-            <span class="hours">0</span>
-            <span class="hours">72</span>
-          </div>
-          <div class="hours-grid">
-            <span>Química Geral</span>
-            <span class="hours">72</span>
-            <span class="hours">18</span>
-            <span class="hours">54</span>
-          </div>
-          <div class="hours-grid" style="margin-top: 15px; border-top: 2px solid #106d78; padding-top: 15px;">
-            <strong>Total 1º Semestre</strong>
-            <strong class="hours">504</strong>
-            <strong class="hours">108</strong>
-            <strong class="hours">396</strong>
-          </div>
-        </div>
-        
-        <div class="info-box">
-          <h3>Resumo do 2º Semestre</h3>
-          <div class="hours-grid header">
-            <span>Disciplina</span>
-            <span class="hours">Total</span>
-            <span class="hours">Práticas</span>
-            <span class="hours">Teóricas</span>
-          </div>
-          <div class="hours-grid">
-            <span>Des. Técnico Assistido por Computador</span>
-            <span class="hours">72</span>
-            <span class="hours">72</span>
-            <span class="hours">0</span>
-          </div>
-          <div class="hours-grid">
-            <span>Estrutura de Dados</span>
-            <span class="hours">72</span>
-            <span class="hours">18</span>
-            <span class="hours">54</span>
-          </div>
-          <div class="hours-grid">
-            <span>Álgebra Linear</span>
-            <span class="hours">72</span>
-            <span class="hours">0</span>
-            <span class="hours">72</span>
-          </div>
-          <div class="hours-grid">
-            <span>Cálculo Dif. e Integral II</span>
-            <span class="hours">108</span>
-            <span class="hours">0</span>
-            <span class="hours">108</span>
-          </div>
-          <div class="hours-grid">
-            <span>Mecânica</span>
-            <span class="hours">108</span>
-            <span class="hours">26</span>
-            <span class="hours">82</span>
-          </div>
-          <div class="hours-grid">
-            <span>Sistemas Digitais</span>
-            <span class="hours">72</span>
-            <span class="hours">18</span>
-            <span class="hours">54</span>
-          </div>
-          <div class="hours-grid" style="margin-top: 15px; border-top: 2px solid #106d78; padding-top: 15px;">
-            <strong>Total 2º Semestre</strong>
-            <strong class="hours">504</strong>
-            <strong class="hours">134</strong>
-            <strong class="hours">370</strong>
-          </div>
-        </div>
-      </div>
+      <div id="flowchart"></div>
       
       <div class="legend">
         <div class="legend-item">
@@ -397,44 +213,734 @@
       <p>© 2023 Engenharia de Controle e Automação - IFG</p>
     </footer>
   </div>
-  
+
   <script>
-    // Inicializar Mermaid
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'forest',
-      securityLevel: 'loose',
-      flowchart: {
-        useMaxWidth: false,
-        htmlLabels: true,
-        curve: 'basis'
+    // Cores para os tipos de disciplinas
+    const colorMap = {
+      theoretical: "#4DB3E6",
+      practical: "#9ECE7F",
+      mixed: "#FF9D6F"
+    };
+
+    // Dados de todas as disciplinas dos 10 semestres
+    const disciplinas = [
+      // 1º Semestre
+      { 
+        id: "intro-eng", 
+        name: "Int. à Eng. de Controle e Automação", 
+        semester: 1, 
+        horas: { total: 36, praticas: 0, teoricas: 36 },
+        type: "theoretical",
+        url: "materia/1_semestre/introducao_engenharia.html"
+      },
+      { 
+        id: "desenho-basico", 
+        name: "Desenho Básico", 
+        semester: 1, 
+        horas: { total: 72, praticas: 72, teoricas: 0 },
+        type: "practical",
+        url: "materia/1_semestre/desenho_basico.html"
+      },
+      { 
+        id: "lingua-portuguesa", 
+        name: "Língua Portuguesa", 
+        semester: 1, 
+        horas: { total: 72, praticas: 0, teoricas: 72 },
+        type: "theoretical",
+        url: "materia/1_semestre/Lingua_Portuguesa.html"
+      },
+      { 
+        id: "intro-comp", 
+        name: "Int. aos Sistemas Computacionais", 
+        semester: 1, 
+        horas: { total: 72, praticas: 18, teoricas: 54 },
+        type: "mixed",
+        url: "materia/1_semestre/introducao_computacao.html"
+      },
+      { 
+        id: "calculo-1", 
+        name: "Cálculo Dif. e Integral I", 
+        semester: 1, 
+        horas: { total: 108, praticas: 0, teoricas: 108 },
+        type: "theoretical",
+        url: "materia/1_semestre/calculo1.html"
+      },
+      { 
+        id: "geometria", 
+        name: "Geometria Analítica", 
+        semester: 1, 
+        horas: { total: 72, praticas: 0, teoricas: 72 },
+        type: "theoretical",
+        url: "materia/1_semestre/Geometria_Analitica.html"
+      },
+      { 
+        id: "quimica", 
+        name: "Química Geral", 
+        semester: 1, 
+        horas: { total: 72, praticas: 18, teoricas: 54 },
+        type: "mixed",
+        url: "materia/1_semestre/quimica.html"
+      },
+      
+      // 2º Semestre
+      { 
+        id: "desenho-tecnico", 
+        name: "Des. Técnico Assistido por Computador", 
+        semester: 2, 
+        horas: { total: 72, praticas: 72, teoricas: 0 },
+        type: "practical",
+        url: "materia/2_semestre/Desenho-técnico_Assistido_por_Computador.html"
+      },
+      { 
+        id: "estrutura-dados", 
+        name: "Estrutura de Dados", 
+        semester: 2, 
+        horas: { total: 72, praticas: 18, teoricas: 54 },
+        type: "mixed",
+        url: "materia/2_semestre/Estrutura_de_Dados.html"
+      },
+      { 
+        id: "algebra", 
+        name: "Álgebra Linear", 
+        semester: 2, 
+        horas: { total: 72, praticas: 0, teoricas: 72 },
+        type: "theoretical",
+        url: "materia/2_semestre/algebra_Linear.html"
+      },
+      { 
+        id: "calculo-2", 
+        name: "Cálculo Dif. e Integral II", 
+        semester: 2, 
+        horas: { total: 108, praticas: 0, teoricas: 108 },
+        type: "theoretical",
+        url: "materia/2_semestre/calculo2.html"
+      },
+      { 
+        id: "mecanica", 
+        name: "Mecânica", 
+        semester: 2, 
+        horas: { total: 108, praticas: 26, teoricas: 82 },
+        type: "mixed",
+        url: "materia/2_semestre/fisica1.html"
+      },
+      { 
+        id: "sistemas-digitais", 
+        name: "Sistemas Digitais", 
+        semester: 2, 
+        horas: { total: 72, praticas: 18, teoricas: 54 },
+        type: "mixed",
+        url: "materia/2_semestre/Sistemas_Digitais.html"
+      },
+      
+      // 3º Semestre
+      { 
+        id: "sistemas-microprocessados", 
+        name: "Sistemas Microprocessados", 
+        semester: 3, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/3_semestre/Sistemas_Microprocessados.html"
+      },
+      { 
+        id: "equacoes-diferenciais", 
+        name: "Equações Diferenciais", 
+        semester: 3, 
+        horas: { total: 72, praticas: 0, teoricas: 72 },
+        type: "theoretical",
+        url: "materia/3_semestre/equacao_diferencial.html"
+      },
+      { 
+        id: "eletricidade-magnetismo", 
+        name: "Eletricidade e Magnetismo", 
+        semester: 3, 
+        horas: { total: 108, praticas: 36, teoricas: 72 },
+        type: "mixed",
+        url: "materia/3_semestre/fisica3.html"
+      },
+      { 
+        id: "estatistica-probabilidade", 
+        name: "Estatística e Probabilidade", 
+        semester: 3, 
+        horas: { total: 72, praticas: 0, teoricas: 72 },
+        type: "theoretical",
+        url: "materia/3_semestre/Estatistica_e_Probabilidade.html"
+      },
+      { 
+        id: "metodologia-cientifica", 
+        name: "Metodologia Científica", 
+        semester: 3, 
+        horas: { total: 36, praticas: 0, teoricas: 36 },
+        type: "theoretical",
+        url: "materia/3_semestre/Metodologia_Cientifica.html"
+      },
+      { 
+        id: "calculo-iii", 
+        name: "Cálculo III", 
+        semester: 3, 
+        horas: { total: 72, praticas: 0, teoricas: 72 },
+        type: "theoretical",
+        url: "materia/3_semestre/calculo3.html"
+      },
+      { 
+        id: "desenvolvimento-sistemas-i", 
+        name: "Desenv. de Sistemas Comput. I", 
+        semester: 3, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/3_semestre/programacao_orientada_objeto.html"
+      },
+      
+      // 4º Semestre
+      { 
+        id: "circuitos-eletricos-i", 
+        name: "Circuitos Elétricos I", 
+        semester: 4, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/4_semestre/circuitos_eletricos1.html"
+      },
+      { 
+        id: "sistemas-lineares", 
+        name: "Sistemas Lineares", 
+        semester: 4, 
+        horas: { total: 108, praticas: 36, teoricas: 72 },
+        type: "mixed",
+        url: "materia/4_semestre/Sistemas_Lineares.html"
+      },
+      { 
+        id: "calculo-numerico", 
+        name: "Cálculo Numérico", 
+        semester: 4, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/4_semestre/calculo_numerico.html"
+      },
+      { 
+        id: "ondas-optica-termodinamica", 
+        name: "Ondas, Ótica e Termodinâmica", 
+        semester: 4, 
+        horas: { total: 108, praticas: 36, teoricas: 72 },
+        type: "mixed",
+        url: "materia/4_semestre/fisica2.html"
+      },
+      { 
+        id: "variaveis-complexas", 
+        name: "Variáveis Complexas", 
+        semester: 4, 
+        horas: { total: 72, praticas: 0, teoricas: 72 },
+        type: "theoretical",
+        url: "materia/4_semestre/Variaveis_Complexas.html"
+      },
+      { 
+        id: "desenvolvimento-sistemas-ii", 
+        name: "Desenv. de Sistemas Comput. II", 
+        semester: 4, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/4_semestre/bancoDeDados.html"
+      },
+      
+      // 5º Semestre
+      { 
+        id: "eletromagnetismo", 
+        name: "Eletromagnetismo", 
+        semester: 5, 
+        horas: { total: 72, praticas: 0, teoricas: 72 },
+        type: "theoretical",
+        url: "materia/5_semestre/eletromagnetismo.html"
+      },
+      { 
+        id: "eletronica-analogica", 
+        name: "Eletrônica Analógica", 
+        semester: 5, 
+        horas: { total: 108, praticas: 36, teoricas: 72 },
+        type: "mixed",
+        url: "materia/5_semestre/eletronica_analogica.html"
+      },
+      { 
+        id: "processos-engenharia", 
+        name: "Processos em Engenharia", 
+        semester: 5, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/5_semestre/processos_em_engenharia.html"
+      },
+      { 
+        id: "circuitos-eletricos-ii", 
+        name: "Circuitos Elétricos II", 
+        semester: 5, 
+        horas: { total: 108, praticas: 36, teoricas: 72 },
+        type: "mixed",
+        url: "materia/5_semestre/circuitos_eletricos_ii.html"
+      },
+      { 
+        id: "mecanica-solidos", 
+        name: "Mecânica dos Sólidos", 
+        semester: 5, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/5_semestre/mecanica_dos_solidos.html"
+      },
+      { 
+        id: "sistemas-controle-i", 
+        name: "Sistemas de Controle I", 
+        semester: 5, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/5_semestre/sistemas_de_controle_i.html"
+      },
+      
+      // 6º Semestre
+      { 
+        id: "eletronica-industrial", 
+        name: "Eletrônica Industrial", 
+        semester: 6, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/6_semestre/eletronica_industrial.html"
+      },
+      { 
+        id: "sistemas-controle-ii", 
+        name: "Sistema de Controle II", 
+        semester: 6, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/6_semestre/sistemas_de_controle_ii.html"
+      },
+      { 
+        id: "instrumentacao-industrial-i", 
+        name: "Instrumentação Industrial I", 
+        semester: 6, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/6_semestre/instrumentacao_industrial_i.html"
+      },
+      { 
+        id: "maquinas-eletricas", 
+        name: "Máquinas Elétricas", 
+        semester: 6, 
+        horas: { total: 108, praticas: 36, teoricas: 72 },
+        type: "mixed",
+        url: "materia/6_semestre/maquinas_eletricas.html"
+      },
+      { 
+        id: "inteligencia-artificial", 
+        name: "Inteligência Artificial", 
+        semester: 6, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/6_semestre/inteligencia_artificial.html"
+      },
+      { 
+        id: "processamento-digital-sinais", 
+        name: "Processamento Digital de Sinais", 
+        semester: 6, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/6_semestre/processamento_digital_de_sinais.html"
+      },
+      
+      // 7º Semestre
+      { 
+        id: "sistemas-nao-lineares", 
+        name: "Sistemas Não Lineares", 
+        semester: 7, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/7_semestre/sistemas_nao_lineares.html"
+      },
+      { 
+        id: "redes-industriais", 
+        name: "Redes Industriais", 
+        semester: 7, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/7_semestre/redes_industriais.html"
+      },
+      { 
+        id: "instalacoes-eletricas", 
+        name: "Inst. Elétricas e Lógicas p/ Automação", 
+        semester: 7, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/7_semestre/instalacoes_eletricas_e_logicas_para_automacao.html"
+      },
+      { 
+        id: "administracao", 
+        name: "Administração", 
+        semester: 7, 
+        horas: { total: 36, praticas: 0, teoricas: 36 },
+        type: "theoretical",
+        url: "materia/7_semestre/introducao_a_administracao.html"
+      },
+      { 
+        id: "acionamentos-eletricos", 
+        name: "Acionamentos Elétricos", 
+        semester: 7, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/7_semestre/acionamentos_eletricos.html"
+      },
+      { 
+        id: "instrumentacao-industrial-ii", 
+        name: "Instrumentação Industrial II", 
+        semester: 7, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/7_semestre/instrumentacao_industrial_ii.html"
+      },
+      { 
+        id: "fenomenos-transporte", 
+        name: "Fenômenos de Transporte", 
+        semester: 7, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/7_semestre/fenomenos_de_transporte.html"
+      },
+      
+      // 8º Semestre
+      { 
+        id: "acionamentos-hidraulicos-pneumaticos", 
+        name: "Acion. Hidráulicos e Pneumáticos", 
+        semester: 8, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/8_semestre/Acionamentos_Hidráulicos_e_Pneumáticos.html"
+      },
+      { 
+        id: "sociologia-trabalho", 
+        name: "Sociologia do Trabalho, Tecn. e Cultura", 
+        semester: 8, 
+        horas: { total: 36, praticas: 0, teoricas: 36 },
+        type: "theoretical",
+        url: "materia/8_semestre/sociologia_do_trabalho_tecnologia_e_cultura.html"
+      },
+      { 
+        id: "automacao-supervisao-i", 
+        name: "Automação e Supervisão de Processos I", 
+        semester: 8, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/8_semestre/Automação_e_Supervisão_de_Processos1.html"
+      },
+      { 
+        id: "manufatura-integrada", 
+        name: "Manufatura Integrada por Computador", 
+        semester: 8, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/8_semestre/manufatura_integrada_por_computador.html"
+      },
+      { 
+        id: "planejamento-processos", 
+        name: "Planejamento de Processos Industriais", 
+        semester: 8, 
+        horas: { total: 36, praticas: 0, teoricas: 36 },
+        type: "theoretical",
+        url: "materia/8_semestre/planejamento_de_processos_industriais.html"
+      },
+      { 
+        id: "empreendedorismo", 
+        name: "Empreend. e Planej. Profissional", 
+        semester: 8, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/8_semestre/empreendedorismo_e_planejamento_profissional.html"
+      },
+      
+      // 9º Semestre
+      { 
+        id: "projeto-final-i", 
+        name: "Projeto Final de Curso I", 
+        semester: 9, 
+        horas: { total: 72, praticas: 72, teoricas: 0 },
+        type: "practical",
+        url: "materia/9_semestre/trabalho_de_conclusao_de_curso_i.html"
+      },
+      { 
+        id: "sistemas-eventos-discretos", 
+        name: "Sistemas a Eventos Discretos", 
+        semester: 9, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/9_semestre/sistemas_a_eventos_discretos.html"
+      },
+      { 
+        id: "automacao-supervisao-ii", 
+        name: "Automação e Supervisão de Processos II", 
+        semester: 9, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/9_semestre/automacao_e_supervisao_de_processos_ii.html"
+      },
+      { 
+        id: "controle-digital", 
+        name: "Sistemas de Controle Digital", 
+        semester: 9, 
+        horas: { total: 72, praticas: 36, teoricas: 36 },
+        type: "mixed",
+        url: "materia/9_semestre/sistemas_de_controle_digital.html"
+      },
+      { 
+        id: "economia", 
+        name: "Economia", 
+        semester: 9, 
+        horas: { total: 36, praticas: 0, teoricas: 36 },
+        type: "theoretical",
+        url: "materia/9_semestre/introducao_a_economia.html"
+      },
+      
+      // 10º Semestre
+      { 
+        id: "projeto-final-ii", 
+        name: "Projeto Final de Curso II", 
+        semester: 10, 
+        horas: { total: 72, praticas: 72, teoricas: 0 },
+        type: "practical",
+        url: "materia/10_semestre/trabalho_de_conclusao_de_curso_ii.html"
+      },
+      { 
+        id: "gestao-ambiental", 
+        name: "Gestão Ambiental", 
+        semester: 10, 
+        horas: { total: 36, praticas: 0, teoricas: 36 },
+        type: "theoretical",
+        url: "materia/10_semestre/gestao_ambiental.html"
+      },
+      { 
+        id: "legislacao-etica", 
+        name: "Legislação e Ética", 
+        semester: 10, 
+        horas: { total: 36, praticas: 0, teoricas: 36 },
+        type: "theoretical",
+        url: "materia/10_semestre/legislacao_e_etica.html"
+      },
+      { 
+        id: "engenharia-economica", 
+        name: "Eng. Econômica", 
+        semester: 10, 
+        horas: { total: 36, praticas: 0, teoricas: 36 },
+        type: "theoretical",
+        url: "materia/10_semestre/engenharia_economica.html"
       }
+    ];
+
+    // Pré-requisitos entre todas as disciplinas
+    const preRequisitos = [
+      // Pré-requisitos 1º-2º semestre
+      { source: "desenho-basico", target: "desenho-tecnico" },
+      { source: "calculo-1", target: "calculo-2" },
+      { source: "intro-comp", target: "estrutura-dados" },
+      { source: "geometria", target: "algebra" },
+      
+      // Pré-requisitos 2º-3º semestre
+      { source: "calculo-2", target: "calculo-iii" },
+      { source: "mecanica", target: "eletricidade-magnetismo" },
+      { source: "sistemas-digitais", target: "sistemas-microprocessados" },
+      { source: "estrutura-dados", target: "desenvolvimento-sistemas-i" },
+      
+      // Pré-requisitos 3º-4º semestre
+      { source: "calculo-iii", target: "sistemas-lineares" },
+      { source: "eletricidade-magnetismo", target: "circuitos-eletricos-i" },
+      { source: "desenvolvimento-sistemas-i", target: "desenvolvimento-sistemas-ii" },
+      { source: "equacoes-diferenciais", target: "variaveis-complexas" },
+      
+      // Pré-requisitos 4º-5º semestre
+      { source: "circuitos-eletricos-i", target: "circuitos-eletricos-ii" },
+      { source: "sistemas-lineares", target: "sistemas-controle-i" },
+      { source: "calculo-numerico", target: "processos-engenharia" },
+      
+      // Pré-requisitos 5º-6º semestre
+      { source: "sistemas-controle-i", target: "sistemas-controle-ii" },
+      { source: "eletronica-analogica", target: "eletronica-industrial" },
+      { source: "circuitos-eletricos-ii", target: "maquinas-eletricas" },
+      
+      // Pré-requisitos 6º-7º semestre
+      { source: "instrumentacao-industrial-i", target: "instrumentacao-industrial-ii" },
+      { source: "maquinas-eletricas", target: "acionamentos-eletricos" },
+      { source: "processos-engenharia", target: "fenomenos-transporte" },
+      
+      // Pré-requisitos 7º-8º semestre
+      { source: "acionamentos-eletricos", target: "acionamentos-hidraulicos-pneumaticos" },
+      { source: "redes-industriais", target: "automacao-supervisao-i" },
+      { source: "processamento-digital-sinais", target: "controle-digital" },
+      
+      // Pré-requisitos 8º-9º semestre
+      { source: "automacao-supervisao-i", target: "automacao-supervisao-ii" },
+      { source: "manufatura-integrada", target: "sistemas-eventos-discretos" },
+      { source: "administracao", target: "economia" },
+      
+      // Pré-requisitos 9º-10º semestre
+      { source: "projeto-final-i", target: "projeto-final-ii" },
+      { source: "economia", target: "engenharia-economica" },
+      { source: "administracao", target: "gestao-ambiental" }
+    ];
+
+    // Preparar elementos para o Cytoscape
+    const elements = [];
+    
+    // Adicionar nós (disciplinas)
+    disciplinas.forEach(disc => {
+      elements.push({
+        data: {
+          id: disc.id,
+          name: disc.name,
+          horas: disc.horas,
+          type: disc.type,
+          semester: disc.semester,
+          url: disc.url // Adicionando a URL
+        }
+      });
     });
     
-    let scale = 1;
-    const container = document.querySelector('.mermaid');
-    
-    function zoomIn() {
-      scale += 0.1;
-      container.style.transform = `scale(${scale})`;
-    }
-    
-    function zoomOut() {
-      if (scale > 0.5) {
-        scale -= 0.1;
-        container.style.transform = `scale(${scale})`;
-      }
-    }
-    
-    function resetZoom() {
-      scale = 1;
-      container.style.transform = 'scale(1)';
-    }
-    
-    // Re-renderizar o gráfico após a carga da página
-    document.addEventListener('DOMContentLoaded', function() {
-      mermaid.init(undefined, '.mermaid');
+    // Adicionar arestas (pré-requisitos)
+    preRequisitos.forEach(req => {
+      elements.push({
+        data: {
+          source: req.source,
+          target: req.target
+        }
+      });
     });
+
+    // Inicializar Cytoscape
+    const cy = cytoscape({
+      container: document.getElementById('flowchart'),
+      elements: elements,
+      style: [
+        {
+          selector: 'node',
+          style: {
+            'label': 'data(name)',
+            'text-valign': 'center',
+            'text-halign': 'center',
+            'text-max-width': '120px',
+            'text-wrap': 'wrap',
+            'background-color': function(ele) {
+              return colorMap[ele.data('type')];
+            },
+            'color': '#122028',
+            'width': 150,
+            'height': 60,
+            'border-width': 2,
+            'border-color': '#106d78',
+            'font-size': '12px',
+            'font-weight': '500',
+            'cursor': 'pointer' // Adiciona cursor de pointer para indicar que é clicável
+          }
+        },
+        {
+          selector: 'edge',
+          style: {
+            'width': 2,
+            'line-color': '#106d78',
+            'target-arrow-color': '#106d78',
+            'target-arrow-shape': 'triangle',
+            'curve-style': 'bezier',
+            'arrow-scale': 1.5
+          }
+        }
+      ],
+      layout: {
+        name: 'grid',
+        rows: 10, // Dez semestres (linhas)
+        cols: 7, // Número máximo de disciplinas por semestre
+        position: function(node) {
+          const data = node.data();
+          const semester = data.semester;
+          const semesterNodes = disciplinas.filter(d => d.semester === semester);
+          const index = semesterNodes.findIndex(d => d.id === data.id);
+          
+          return {
+            row: semester - 1, // Semestre 1 na linha 0, semestre 2 na linha 1, etc.
+            col: index
+          };
+        },
+        padding: 100,
+        avoidOverlap: true,
+        avoidOverlapPadding: 20,
+        condense: true
+      },
+      minZoom: 0.2,
+      maxZoom: 2.0,
+      wheelSensitivity: 0.2
+    });
+
+    // Adicionar títulos dos semestres
+    const flowchartDiv = document.getElementById('flowchart');
+    
+    const semesters = [
+      { number: 1, top: '100px' },
+      { number: 2, top: '300px' },
+      { number: 3, top: '500px' },
+      { number: 4, top: '700px' },
+      { number: 5, top: '900px' },
+      { number: 6, top: '1100px' },
+      { number: 7, top: '1300px' },
+      { number: 8, top: '1500px' },
+      { number: 9, top: '1700px' },
+      { number: 10, top: '1900px' }
+    ];
+    
+    semesters.forEach(sem => {
+      const title = document.createElement('div');
+      title.className = 'semester-title';
+      title.textContent = `${sem.number}º Semestre`;
+      title.style.left = '50px';
+      title.style.top = sem.top;
+      flowchartDiv.appendChild(title);
+    });
+
+    // Ferramenta de dica
+    const tooltip = document.createElement('div');
+    tooltip.className = 'tooltip';
+    tooltip.style.opacity = 0;
+    document.body.appendChild(tooltip);
+
+    // Eventos para a tooltip
+    cy.on('mouseover', 'node', function(evt){
+      const node = evt.target;
+      const data = node.data();
+      
+      tooltip.innerHTML = `
+        <strong>${data.name}</strong><br/>
+        Total: ${data.horas.total}h<br/>
+        Práticas: ${data.horas.praticas}h<br/>
+        Teóricas: ${data.horas.teoricas}h
+      `;
+      
+      tooltip.style.opacity = 0.9;
+      tooltip.style.left = (evt.originalEvent.pageX + 10) + 'px';
+      tooltip.style.top = (evt.originalEvent.pageY - 28) + 'px';
+    });
+
+    cy.on('mouseout', 'node', function(){
+      tooltip.style.opacity = 0;
+    });
+
+    // Evento de clique para redirecionar para a página da disciplina
+    cy.on('tap', 'node', function(evt){
+      const node = evt.target;
+      const data = node.data();
+      if (data.url) {
+        window.open(data.url, '_blank'); // Abre em uma nova aba
+      }
+    });
+
+    // Ajustar o layout ao redimensionar a janela
+    window.addEventListener('resize', function() {
+      cy.fit();
+    });
+
+    // Inicializar
+    cy.fit();
+    
+    // Adicionar método reset ao objeto cy
+    cy.reset = function() {
+      cy.fit();
+      cy.zoom(1);
+      cy.center();
+    };
   </script>
 </body>
 </html>
